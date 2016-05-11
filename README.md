@@ -2,7 +2,7 @@
 
 Simple example of JDG 7 ServerTask invoked by remote client
 
-How to run:
+##How to run:
 
 (1) build root project "mvn clean install"
 
@@ -12,6 +12,8 @@ How to run:
 
 (4) do http POST on
 http://{eaphost}:{eaphttpport}/task-client/modelPojo
+
+##Project structure
 
 
 
