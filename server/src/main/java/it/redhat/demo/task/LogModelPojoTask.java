@@ -1,5 +1,6 @@
 package it.redhat.demo.task;
 
+import it.redhat.demo.model.ModelPojo;
 import org.infinispan.tasks.ServerTask;
 import org.infinispan.tasks.TaskContext;
 import org.slf4j.Logger;
@@ -16,21 +17,18 @@ public class LogModelPojoTask implements ServerTask {
 
     @Override
     public void setTaskContext(TaskContext taskContext) {
-
     }
 
     @Override
     public String getName() {
-
         return "logModelPojo";
-
     }
 
     @Override
     public Object call() throws Exception {
-
-        log.info("ciao");
-        return null;
+        ModelPojo modelPojo = new ModelPojo();
+        log.info("ciao [" + modelPojo + "]");
+        return modelPojo;
 
     }
 
