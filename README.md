@@ -2,7 +2,7 @@
 
 Simple example of JDG 7 ServerTask invoked by remote client
 
-##How to run:
+## How to run:
 
 (1) build root project "mvn clean install"
 
@@ -13,8 +13,13 @@ Simple example of JDG 7 ServerTask invoked by remote client
 (4) do http POST on
 http://{eaphost}:{eaphttpport}/task-client/modelPojo
 
-##Project structure
+## Project structure
 
+(1) model :: shared model with both client and server module. It contains only simple Serializable object wrapping String
+
+(2) client :: standard JEE6 module using Hotrod client to invoke remote jdg server. It use the inifinispan depedencies provided by Red Hat JBoss Data Grid 7.0.0 Beta Library Module. It has a simple Rest service to trigger ServerTask invocation.
+
+(3) server :: jar containing the ServerTask, activated by META-INF/service definition and the Pojo of the shared model
 
 
 
