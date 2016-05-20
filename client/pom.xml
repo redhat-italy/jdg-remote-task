@@ -10,86 +10,70 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
     <artifactId>task-client</artifactId>
-    <packaging>war</packaging>
-
-    <properties>
-        <!-- JEE 6 EAP Implementation -->
-        <version.jboss.eap>6.4.7.GA</version.jboss.eap>
-
-        <!-- maven plugin -->
-        <war.plugin.version>2.1.1</war.plugin.version>
-    </properties>
-
-    <dependencyManagement>
-        <dependencies>
-            <!-- Jboss EAP 6.4.7 client -->
-            <dependency>
-                <groupId>org.jboss.bom.eap</groupId>
-                <artifactId>jboss-javaee-6.0-with-tools</artifactId>
-                <version>${version.jboss.eap}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
+    <packaging>jar</packaging>
 
     <dependencies>
-        <!-- JEE -->
         <dependency>
-            <groupId>javax.enterprise</groupId>
-            <artifactId>cdi-api</artifactId>
-            <scope>provided</scope>
+            <groupId>it.redhat.demo</groupId>
+            <artifactId>task-model</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.jboss.spec.javax.ejb</groupId>
-            <artifactId>jboss-ejb-api_3.1_spec</artifactId>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.jboss.spec.javax.ws.rs</groupId>
-            <artifactId>jboss-jaxrs-api_1.1_spec</artifactId>
-            <scope>provided</scope>
+            <groupId>it.redhat.demo</groupId>
+            <artifactId>task-server</artifactId>
         </dependency>
 
-        <!-- CACHE -->
         <dependency>
             <groupId>org.infinispan</groupId>
-            <artifactId>infinispan-commons</artifactId>
-            <scope>provided</scope>
+            <artifactId>infinispan-remote</artifactId>
+            <scope>test</scope>
         </dependency>
+
         <dependency>
             <groupId>org.infinispan</groupId>
-            <artifactId>infinispan-client-hotrod</artifactId>
-            <scope>provided</scope>
+            <artifactId>infinispan-tasks</artifactId>
+            <scope>test</scope>
         </dependency>
 
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
-            <scope>provided</scope>
         </dependency>
+
+        
+        <dependency>
+            <groupId>org.wildfly.arquillian</groupId>
+            <artifactId>wildfly-arquillian-container-managed</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.arquillian.protocol</groupId>
+            <artifactId>arquillian-protocol-servlet</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.infinispan.arquillian.container</groupId>
+            <artifactId>infinispan-arquillian-impl</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.arquillian.junit</groupId>
+            <artifactId>arquillian-junit-container</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+<!--
+        <dependency>
+            <groupId>org.infinispan.arquillian.container</groupId>
+            <artifactId>infinispan-arquillian-impl</artifactId>
+            <scope>test</scope>
+        </dependency>
+-->
 
         <dependency>
-            <groupId>it.redhat.demo</groupId>
-            <artifactId>task-model</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
         </dependency>
     </dependencies>
-
-    <build>
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-war-plugin</artifactId>
-                    <version>${war.plugin.version}</version>
-                    <configuration>
-                        <failOnMissingWebXml>false</failOnMissingWebXml>
-                    </configuration>
-                </plugin>
-            </plugins>
-        </pluginManagement>
-    </build>
-
 
 </project>

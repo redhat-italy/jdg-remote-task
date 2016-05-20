@@ -14,6 +14,7 @@ import org.slf4j.LoggerFactory;
 public class LogModelPojoTask implements ServerTask {
 
     private static final Logger log = LoggerFactory.getLogger(LogModelPojoTask.class);
+    private static final String TASK_NAME = "logModelPojo";
 
     @Override
     public void setTaskContext(TaskContext taskContext) {
@@ -21,7 +22,7 @@ public class LogModelPojoTask implements ServerTask {
 
     @Override
     public String getName() {
-        return "logModelPojo";
+        return TASK_NAME;
     }
 
     @Override
@@ -29,7 +30,6 @@ public class LogModelPojoTask implements ServerTask {
         ModelPojo modelPojo = new ModelPojo();
         log.info("ciao [" + modelPojo + "]");
         return modelPojo;
-
     }
 
 }
