@@ -12,7 +12,7 @@
     <modules>
         <module>model</module>
         <module>server</module>
-        <module>client</module>
+        <module>testing</module>
     </modules>
 
     <properties>
@@ -24,7 +24,7 @@
         <maven.assembly.plugin.version>2.6</maven.assembly.plugin.version>
 
         <version.datagrid>8.3.0.ER4-redhat-1</version.datagrid>
-        <version.eap>6.4.5.GA</version.eap>
+        <version.eap>1.0.7.Final</version.eap>
 
         <!-- SLFJ -->
         <version.org.slf4j>1.7.2.redhat-3</version.org.slf4j>
@@ -37,7 +37,7 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>org.jboss.bom.eap</groupId>
+                <groupId>org.jboss.bom</groupId>
                 <artifactId>jboss-javaee-6.0-with-tools</artifactId>
                 <version>${version.eap}</version>
                 <type>pom</type>
@@ -54,12 +54,12 @@
 
             <dependency>
                 <groupId>it.redhat.demo</groupId>
-                <artifactId>task-model</artifactId>
+                <artifactId>model</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>it.redhat.demo</groupId>
-                <artifactId>task-server</artifactId>
+                <artifactId>server</artifactId>
                 <version>${project.version}</version>
             </dependency>
 

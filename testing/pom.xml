@@ -9,17 +9,19 @@
         <groupId>it.redhat.demo</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    <artifactId>task-client</artifactId>
+    <artifactId>testing</artifactId>
     <packaging>jar</packaging>
 
     <dependencies>
         <dependency>
             <groupId>it.redhat.demo</groupId>
-            <artifactId>task-model</artifactId>
+            <artifactId>model</artifactId>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>it.redhat.demo</groupId>
-            <artifactId>task-server</artifactId>
+            <artifactId>server</artifactId>
+            <scope>test</scope>
         </dependency>
 
         <dependency>
@@ -39,7 +41,7 @@
             <artifactId>slf4j-api</artifactId>
         </dependency>
 
-        
+
         <dependency>
             <groupId>org.wildfly.arquillian</groupId>
             <artifactId>wildfly-arquillian-container-managed</artifactId>
