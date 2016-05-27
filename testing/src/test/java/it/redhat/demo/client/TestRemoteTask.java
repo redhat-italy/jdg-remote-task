@@ -18,6 +18,10 @@ import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.io.OutputStream;
 import java.util.HashMap;
 
 @RunWith(Arquillian.class)
@@ -44,13 +48,27 @@ public class TestRemoteTask {
 
         ModelPojo pojo = new ModelPojo();
         pojo.setString("ciao ciao ciao");
-        params.put("one", pojo);
+
+        // params.put("one", pojo);
+        params.put("one", toBytes(pojo));
 
         Object result = cache.execute(TASK_NAME, params);
         log.info("with outcome {}", result);
 
         // Stop the cache manager and release resources
         cacheManager.stop();
+    }
+
+    byte[] toBytes(Object o) {
+        try {
+            ByteArrayOutputStream os = new ByteArrayOutputStream();
+            ObjectOutputStream oos = new ObjectOutputStream(os);
+            oos.writeObject(o);
+            oos.close();
+            return os.toByteArray();
+        } catch (IOException e) {
+            throw new AssertionError(e);
+        }
     }
 
     @Before
