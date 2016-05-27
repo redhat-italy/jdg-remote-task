@@ -19,4 +19,10 @@ public class ModelPojo implements Serializable {
         this.string = string;
     }
 
+    @Override
+    public String toString() {
+        return "ModelPojo{" +
+              "string='" + string + '\'' +
+              '}';
+    }
 }
